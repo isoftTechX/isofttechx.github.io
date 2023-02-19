@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Search Bar</title>
+    <style>
+      .search-icon {
+        background-image: url(search-icon.png);
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        padding: 10px 10px 10px 40px;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .search-icon:focus {
+        width: 300px;
+        background-position: 10px center;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-submit {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .search-submit:hover {
+        background-color: #0069d9;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="text" class="search-icon" placeholder="Search...">
+    </form>
+
+    <script>
+      var input = document.querySelector('.search-icon');
+      input.addEventListener('focus', function() {
+        input.classList.add('search-submit');
+        input.classList.remove('search-icon');
+        input.setAttribute('placeholder', 'Enter your search query');
+      });
+
+      input.addEventListener('blur', function() {
+        input.classList.add('search-icon');
+        input.classList.remove('search-submit');
+        input.setAttribute('placeholder', 'Search...');
+      });
+    </script>
+  </body>
+</html>

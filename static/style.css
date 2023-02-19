@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'Audiowide', cursive;
+}
+
+header {
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.logo {
+	margin: 5px;
+}
+
+.logo img {
+	height: 40px;
+}
+
+.background {
+	background-image: url("./img/background.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+
+	min-height: 1200px;
+}
+
+/* Navbar Stylesheet */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.navbar-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 250px;
+}
+
+.navbar-list li {
+	margin-right: 20px;
+	display: inline-block;
+}
+
+.navbar-list li a {
+	display: block;
+	padding: 15px;
+	color: #C0C0C0;
+	font-weight: 800;
+	text-transform: uppercase;
+	margin: 0 10px;
+	text-decoration: none;
+	position: relative;
+	font-family: 'Audiowide', cursive;
+}
+
+.navbar-list li a:after,
+.navbar-list li a:before {
+	transition: all .5s;
+}
+
+.navbar-list li a:after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 0%;
+	content: '.';
+	color: transparent;
+	background: #aaa;
+	height: 1px;
+}
+
+.navbar-list li a:hover:after {
+	width: 100%;
+}
+
+.navbar-list.expanded {
+	margin-left: auto;
+}
+
+/* Search bar Stylesheet */
+.search-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.search-box input[type="text"] {
+	width: 0;
+	height: 36px;
+	border: none;
+	border-bottom: 2px solid #C0C0C0;
+	background-color: transparent;
+	font-size: 16px;
+	padding: 0 10px;
+	color: #fff;
+	transition: width 0.3s ease-in-out;
+	font-family: 'Orbitron', sans-serif;
+}
+
+.search-box button.search-icon {
+	border: none;
+	background-color: transparent;
+	height: 60px;
+	position: absolute;
+	cursor: pointer;
+	visibility: visible;
+	right: 0;
+}
+
+.search-box button.search-button {
+	border: none;
+	background-color: transparent;
+	height: 60px;
+	position: absolute;
+	cursor: pointer;
+	visibility: hidden;
+	right: 0;
+}
+
+.search-box input[type="text"]:focus {
+	width: 200px;
+	outline: none;
+	padding-right: 30px;
+}
+
+
+/* Typewriter animation */
+.title {
+	position: absolute;
+	left: 68%;
+	top: 10%;
+	z-index: 1;
+	height: 300px;
+}
+
+.title h1 {
+	font-size: 4rem;
+	color: #fff;
+	font-family: 'Orbitron', cursive;
+	font-weight: bold;
+	cursor: context-menu;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: 0 0 10px #dcdcdc;
+}
+
+/* Card Stylesheet */
+.card-container {
+	margin: 0 -5px;
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
+}
+
+.card-container:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.card-background {
+	width: 190px;
+	height: 254px;
+	background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+	border-radius: 20px;
+	transition: all .3s;
+	float: left;
+	margin: 10px;
+}
+
+.card {
+	width: 190px;
+	height: 254px;
+	background-color: #1a1a1a;
+	border-radius: 20px;
+	transition: all .2s;
+	font-family: 'Righteous', cursive;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.card:hover {
+	transform: scale(0.98);
+	border-radius: 20px;
+}
+
+.card-background:hover {
+	box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+}
