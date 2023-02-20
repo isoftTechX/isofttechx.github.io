@@ -190,21 +190,130 @@ header {
 }
 
 .card {
-	width: 190px;
-	height: 254px;
-	background-color: #1a1a1a;
-	border-radius: 20px;
-	transition: all .2s;
+	display: flex;
+	width: 33.33%;
+	min-height: 250px;
+	margin: 0 20px;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease-in-out;
+	color: rgba(211, 211, 211, 0.8);
+	font-size: 1.5rem;
 	font-family: 'Righteous', cursive;
 	font-size: 2rem;
 	text-align: center;
 }
 
 .card:hover {
-	transform: scale(0.98);
-	border-radius: 20px;
+	transform: scale(1.05);
+	border: 2px solid #dcdcdc;
 }
 
-.card-background:hover {
-	box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+/* Footer StyleSheet */
+.footer {
+	background-image: url("/static/img/cover.jpg");
+	background-size: cover;
+	background-position-y: center;
+	background-repeat: no-repeat;
+	color: #fff;
+	height: 250px;
+	font-family: 'Orbitron', cursive;
+	padding: 10px;
+}
+
+/* Sharing button */
+.footer-content {
+	display: grid;
+}
+
+.wrapper {
+	display: flex;
+	place-items: center;
+	position: relative;
+	width: 100px;
+	padding-left: 85%;
+	margin-top: 75px;
+}
+
+.wrapper :is(.btn, .link) {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	background-color: #C0C0C0;
+	color: #151515;
+	border-radius: 50%;
+}
+
+.btn {
+	position: absolute;
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+	top: 50%;
+	right: 0.7%;
+}
+
+@media (max-width: 1300px) {
+	.btn {
+		right: 1%;
+	}
+}
+
+.active .btn,
+.btn:hover {
+	outline: 3px solid #0561ee;
+	outline-offset: -4px;
+}
+
+.item {
+	position: absolute;
+	list-style: none;
+	transition: transform 0.5s;
+	transition-delay: var(--d);
+}
+
+.item a {
+	text-decoration: none;
+}
+
+.wrapper.active .item:nth-child(1) {
+	transform: translateX(-65px) translateY(-30px);
+}
+.wrapper.active .item:nth-child(2) {
+	transform: translateY(-65px);
+}
+.wrapper.active .item:nth-child(3) {
+	transform: translateY(65px);
+}
+.wrapper.active .item:nth-child(4) {
+	transform: translateY(40px) translateX(-65px);
+}
+
+.link:hover {
+	color: #fff;
+	transition: background-color 0.5s;
+}
+
+.ig:hover {
+	background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+.tw:hover {
+	background-color: #1da1f2;
+}
+.yt:hover {
+	background-color: #ff0000;
+	color: inherit;
+}
+.in:hover {
+	background-color: #0A66C2;
+	color: inherit;
+}
+
+/* Information at Footer */
+.info h3{
+	padding-top: 120px;
+	margin: 0px;
 }
