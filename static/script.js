@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
     });
 
 
-    var text = "Innovating for a better tomorrow with AI";
+    var text = "Innovating for a better tomorrow";
     var i = 0;
 
     function typeWriter() {
