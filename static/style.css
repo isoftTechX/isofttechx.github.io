@@ -55,11 +55,10 @@ header {
 	display: flex;
 	align-items: center;
 	position: absolute;
-	left: 250px;
+	left: 220px;
 }
 
 .navbar-list li {
-	margin-right: 20px;
 	display: inline-block;
 }
 
@@ -218,8 +217,6 @@ header {
 
 /* Card Stylesheet */
 .card-slider {
-	position: static;
-	top: 0;
 	overflow-x: auto;
 	width: 100%;
 	/* background-color: #010300; */
@@ -266,30 +263,128 @@ header {
 .value-proposition {
 	background: linear-gradient(90deg, #910E64, #03458E);
 	position: relative;
-	
-    z-index: 1;
-	margin-top: 50px;
+
+	z-index: 1;
 	margin: 20px;
+	margin-bottom: 50px;
 	border-radius: 20px;
 	padding: 20px;
 }
 
-.value-proposition h2{
+.value-proposition h2 {
 	color: rgba(211, 211, 211, 0.8);
-    font-size: 3rem;
-    font-family: 'Righteous', cursive;
+	font-size: 3rem;
+	font-family: 'Righteous', cursive;
 	text-transform: uppercase;
 }
 
-.value-proposition p{
+.value-proposition p {
 	color: rgba(211, 211, 211, 0.8);
-    font-size: 2rem;
-    font-family: 'Righteous', cursive;
+	font-size: 2rem;
+	font-family: 'Righteous', cursive;
 	padding: 20px;
 	border-radius: 30px;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(20px);
 	margin-bottom: 0;
+}
+
+/* Services StyleSheet */
+.services {
+	/* background: linear-gradient(90deg, #910E64, #03458E); */
+	position: relative;
+
+	z-index: 1;
+	margin-top: 50px;
+	margin-bottom: 100px;
+	border-radius: 20px;
+	padding: 20px;
+	height: 300px;
+}
+
+.services h2 {
+	margin: 20px;
+	color: #d3d3d3cc;
+	font-size: 3rem;
+	font-family: 'Righteous', cursive;
+	text-transform: uppercase;
+}
+
+.service-card {
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	display: flex;
+	gap: 5px;
+	/* padding: .4em; */
+}
+
+.service-card p {
+	margin: 10px;
+	height: 100%;
+	flex: 1;
+	overflow: hidden;
+	cursor: pointer;
+	border-radius: 20px;
+	transition: all .5s;
+	background: linear-gradient(135deg, #910E64, #03458E);
+	;
+	border: 1px solid #ff5a91;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.service-card p:hover {
+	flex: 4;
+	justify-content: center;
+	align-items: center;
+}
+
+.service-card p span {
+	width: 100%;
+	padding: .5em;
+	text-align: center;
+	transform: rotate(-90deg);
+	transition: all .7s ease;
+	text-transform: uppercase;
+	color: #d3d3d3cc;
+	letter-spacing: .1em;
+	justify-content: center;
+	display: flex;
+}
+
+.service-card p:hover span {
+	transform: rotate(0deg);
+}
+
+.service-button {
+	display: inline-block;
+	position: relative;
+	background: #910E64;
+	color: #fff;
+	padding: 12px 30px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+	margin-top: 50px;
+	margin-left: 82%;
+}
+
+.service-button:hover {
+	background: #03458E;
+}
+
+.animate {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.animate--active {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 /* Footer StyleSheet */
@@ -360,12 +455,15 @@ header {
 .wrapper.active .item:nth-child(1) {
 	transform: translateX(-65px) translateY(-30px);
 }
+
 .wrapper.active .item:nth-child(2) {
 	transform: translateY(-65px);
 }
+
 .wrapper.active .item:nth-child(3) {
 	transform: translateY(65px);
 }
+
 .wrapper.active .item:nth-child(4) {
 	transform: translateY(40px) translateX(-65px);
 }
@@ -378,20 +476,23 @@ header {
 .ig:hover {
 	background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
+
 .tw:hover {
 	background-color: #1da1f2;
 }
+
 .yt:hover {
 	background-color: #ff0000;
 	color: inherit;
 }
+
 .in:hover {
 	background-color: #0A66C2;
 	color: inherit;
 }
 
 /* Information at Footer */
-.info h3{
+.info h3 {
 	padding-top: 120px;
 	margin: 0px;
 }
