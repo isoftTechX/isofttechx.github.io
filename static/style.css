@@ -360,7 +360,7 @@ header {
 
 .service-button {
 	display: inline-block;
-	position: relative;
+	position: absolute;
 	background: #910E64;
 	color: #fff;
 	padding: 12px 30px;
@@ -369,7 +369,7 @@ header {
 	border-radius: 4px;
 	transition: all 0.3s ease;
 	margin-top: 50px;
-	margin-left: 82%;
+	right: 30px;
 }
 
 .service-button:hover {
