@@ -256,16 +256,6 @@ header {
     backdrop-filter: blur(10px);
 }
 
-.profile-card .blob {
-    height: 10px;
-    width: 75%;
-    border-radius: 0 0 30px 30px;
-    margin: 0 auto;
-    background: transparent;
-    visibility: visible;
-    transition: all 0.3s;
-}
-
 .profile-card .img {
     display: flex;
     margin: 30px auto 10px auto;
@@ -332,19 +322,6 @@ header {
 .profile-card:hover {
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
     /* background-color: #4bb8ff; */
-}
-
-.profile-card .blob {
-    height: 10px;
-    width: 75%;
-    border-radius: 0 0 30px 30px;
-    margin: 0 auto;
-    visibility: visible;
-    transition: all 0.3s;
-}
-
-.profile-card:hover .blob {
-    height: 0;
 }
 
 .profile-card:hover .img {
