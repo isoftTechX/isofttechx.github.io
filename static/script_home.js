@@ -124,12 +124,9 @@ window.addEventListener('load', function () {
     });
 
 
-    // Select the card elements
     const cards = document.querySelectorAll('.card');
 
-    // Hide two random cards if the screen size is less than 1500px
     if (window.innerWidth < 1500) {
-        // Generate an array of random indices
         const randomIndices = [];
         while (randomIndices.length < 2) {
             const randomIndex = Math.floor(Math.random() * cards.length);
@@ -138,7 +135,6 @@ window.addEventListener('load', function () {
             }
         }
 
-        // Hide the cards with the random indices
         randomIndices.forEach(index => {
             console.log(cards[index])
             cards[index].classList.add('hide');

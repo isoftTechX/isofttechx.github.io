@@ -7,9 +7,9 @@
         content="isoftTechX is dedicated to pushing the boundaries of what's possible and creating a smarter tomorrow.">
     <link rel="icon" href="static/img/icon_grey.png" type="image/png">
     <link rel="shortcut icon" href="static/img/icon_grey.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" type="text/css" href="static/style_home.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <script src="./static/script.js"></script>
+    <script src="./static/script_home.js"></script>
 </head>
 
 <body>
@@ -20,8 +20,8 @@
             </figure>
             <nav class="navbar">
                 <ul class="navbar-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="us.html">About</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -75,7 +75,10 @@
             Innovative and cutting-edge software solutions
         </h2>
         <p>
-            At isoftTechX, we are passionate about shaping the future with innovative and cutting-edge software solutions. Our team of expert developers and designers are dedicated to delivering customized software that not only meets the unique needs of each of our clients, but also helps them to unlock their full potential and stay ahead of the competition. <br>
+            At isoftTechX, we are passionate about shaping the future with innovative and cutting-edge software
+            solutions. Our team of expert developers and designers are dedicated to delivering customized software that
+            not only meets the unique needs of each of our clients, but also helps them to unlock their full potential
+            and stay ahead of the competition. <br>
         </p>
     </section>
     <section class="services animate">
@@ -91,35 +94,53 @@
     </section>
     <footer class="footer">
         <div class="footer-content">
+            <div class="wave-container">
+                <svg class="wave" id="wave1" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                    <path fill="#910E64" d="M0 50 Q 250 -20, 500 50 T 1000 50 V 100 H 0 Z">
+                        <animate attributeName="d" dur="11s" repeatCount="indefinite" values="M0 50 Q 250 120, 500 50 T 1000 50 V 100 H 0 Z;
+                                M0 50 Q 250 -20, 500 50 T 1000 50 V 100 H 0 Z;
+                                M0 50 Q 250 120, 500 50 T 1000 50 V 100 H 0 Z" />
+                    </path>
+                </svg>
+                <svg class="wave" id="wave2" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                    <path fill="#03458E" d="M0 50 Q 250 -20, 500 50 T 1000 50 V 100 H 0 Z">
+                        <animate attributeName="d" dur="7s" repeatCount="indefinite" values="M0 50 Q 250 120, 500 50 T 1000 50 V 100 H 0 Z;
+                                M0 50 Q 250 -20, 500 50 T 1000 50 V 100 H 0 Z;
+                                M0 50 Q 250 120, 500 50 T 1000 50 V 100 H 0 Z" />
+                    </path>
+                </svg>
+            </div>
             <div class="wrapper">
                 <button class="btn">
                     <i class="ri-share-line"></i>
                 </button>
                 <ul class="list">
                     <li class="item">
-                        <a href="#" class="link ig">
+                        <a href="https://www.instagram.com/isofttechx/" target="_blank" class="link ig">
                             <i class="ri-instagram-line"></i>
                         </a>
                     </li>
                     <li class="item" style="--d: 0.25s">
-                        <a href="#" class="link in">
+                        <a href="https://www.linkedin.com/company/isofttechx/" target="_blank" class="link in">
                             <i class="ri-linkedin-line"></i>
                         </a>
                     </li>
                     <li class="item" style="--d: 0.5s">
-                        <a href="#" class="link tw">
+                        <a href="https://twitter.com/isofttechx" target="_blank" class="link tw">
                             <i class="ri-twitter-line"></i>
                         </a>
                     </li>
                     <li class="item" style="--d: 0.7.5s">
-                        <a href="#" class="link yt">
+                        <a href="https://www.youtube.com/@isofttechx" target="_blank" class="link yt">
                             <i class="ri-youtube-line"></i>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="info">
-                <h3>Copyright &copy; 2021 - <script>document.write(new Date().getFullYear())</script></h3>
+                <h3>Copyright &copy; 2021 -
+                    <script>document.write(new Date().getFullYear())</script>
+                </h3>
                 <h2>isoftTechX - All Rights Reserved</h2>
             </div>
         </div>
