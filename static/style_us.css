@@ -204,6 +204,12 @@ header {
     margin-bottom: 0;
 }
 
+@media (max-width: 1024px) {
+    .us-text p {
+        font-size: 1rem;
+    }
+}
+
 /* About Team StyleSheet */
 .team {
     background: linear-gradient(90deg, #910E64, #03458E);
@@ -231,6 +237,16 @@ header {
     backdrop-filter: blur(20px);
     margin-top: 0;
     margin-bottom: 0;
+}
+
+@media (max-width: 1024px) {
+    .team-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .team-text p {
+        font-size: 1rem;
+    }
 }
 
 /* Team Cards */
@@ -345,7 +361,30 @@ header {
     bottom: 15px;
     left: 35px;
     opacity: 1;
-    transition: all 0.1s;
+    width: 100%;
+    transition: all 1s;
+}
+
+@media (max-width: 1024px) {
+    .profile-card {
+        height: 400px;
+        width: 33.33%;
+    }
+
+    .profile-card .img {
+        width: 65%;
+        height: 50%;
+    }
+
+    .profile-card h2 {
+        font-size: 35px;
+        line-height: 34px;
+    }
+
+    .profile-card p a svg {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 /* Grow-Card StyleSheet*/
@@ -365,19 +404,6 @@ header {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     transition: all 0.2s;
     justify-self: end;
-}
-
-@media (max-width: 1024px) {
-    .growth-card-container {
-        /* display: block; */
-        margin-left: 8%;
-        /* box-sizing: border-box; */
-        /* width: ; */
-    }
-
-    .growth-card {
-        width: 100%;
-    }
 }
 
 .growth-card:hover {
@@ -424,7 +450,28 @@ header {
     justify-self: end;
 }
 
+@media (max-width: 1024px) {
+    .growth-card-container {
+        /* display: block; */
+        margin-left: 8%;
+        /* box-sizing: border-box; */
+        /* width: ; */
+    }
 
+    .growth-card {
+        width: 100%;
+    }
+
+    .card-link {
+        display: flex;
+        width: 150px;
+        font-size: 28px;
+    }
+
+    .growth-card .card-link::after {
+        top: 35px;
+    }
+}
 
 /* Animations */
 .animate {

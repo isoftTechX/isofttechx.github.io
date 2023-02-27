@@ -336,6 +336,13 @@ header {
 	background: #03458E;
 }
 
+@media (max-width: 1300px) {
+	.service-card p {
+		font-size: 1.2rem;
+	}
+}
+
+/* Animations */
 .animate {
 	opacity: 0;
 	transform: translateY(20px);

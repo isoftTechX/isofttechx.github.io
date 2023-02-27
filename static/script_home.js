@@ -18,27 +18,27 @@ function changeText(element, num) {
 
     if (num === 1) {
         timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br>Developing customized software applications tailored to meet the unique needs of your clients."
+            span.innerHTML = text + ": <br><br>Developing customized software applications tailored to meet the unique needs of your clients."
         }, 400);
     }
     if (num === 2) {
         timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br>Designing and building web-based applications to provide clients with the ability to manage their businesses online."
+            span.innerHTML = text + ": <br><br>Designing and building web-based applications to provide clients with the ability to manage their businesses online."
         }, 400);
     }
     if (num === 3) {
         timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br>Integrating software systems and applications to enhance the overall efficiency of your client's business operations."
+            span.innerHTML = text + ": <br><br>Integrating software systems and applications to enhance the overall efficiency of your client's business operations."
         }, 400);
     }
     if (num === 4) {
         timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br>Offering ongoing maintenance and support services to ensure the continued optimal performance of the software you develop."
+            span.innerHTML = text + ": <br><br>Offering ongoing maintenance and support services to ensure the continued optimal performance of the software you develop."
         }, 400);
     }
     if (num === 5) {
         timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br>Designing intuitive and visually appealing user interfaces that enhance the user experience and increase engagement."
+            span.innerHTML = text + ": <br><br>Designing intuitive and visually appealing user interfaces that enhance the user experience and increase engagement."
         }, 400);
     }
     element.onmouseout = function () {
