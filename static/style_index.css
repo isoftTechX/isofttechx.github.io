@@ -256,7 +256,7 @@ header {
 
 	z-index: 1;
 	margin-top: 50px;
-	margin-bottom: 100px;
+	margin-bottom: 120px;
 	border-radius: 20px;
 	padding: 20px;
 	height: 300px;
@@ -356,176 +356,233 @@ header {
 
 /* Footer StyleSheet */
 footer {
-	color: #d3d3d3cc;
-	font-family: 'Orbitron', cursive;
-	position: relative;
-	margin-top: 180px;
+    color: #d3d3d3cc;
+    font-family: 'Orbitron', cursive;
+    /* padding: 10px; */
+    position: relative;
+    /* height: 500px; */
+    /* background-color: #f5f5f5; */
 }
 
 .footer-content {
-	position: relative;
-	padding-top: 50px;
-	/* text-align: center; */
-	display: grid;
+    position: relative;
+    padding-top: 50px;
+    display: grid;
 }
 
 .wave-container {
-	position: relative;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	overflow: hidden;
-	line-height: 0;
-	width: 100%;
-	height: 220px;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    align-items: center;
 }
 
-#wave1 {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
+#part1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: #910E64;
+    width: 500px;
+    z-index: -1;
+    animation: move1 7s ease-in-out infinite;
+    transform-origin: 50% 50%;
 }
 
-#wave2 {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 2;
+#part2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: #03458E;
+    width: 500px;
+    z-index: -1;
+    animation: move2 11s ease-in-out infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes move1 {
+    0% {
+        transform: scale(1) translate(10px, 0px);
+    }
+
+    38% {
+        transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg);
+    }
+
+    40% {
+        transform: scale(0.8, 1) translate(10vw, 30vh) rotate(160deg);
+    }
+
+    78% {
+        transform: scale(.5) translate(0vw, -70vh) rotate(-20deg);
+    }
+
+    80% {
+        transform: scale(.5) translate(0vw, -70vh) rotate(-20deg);
+    }
+
+    100% {
+        transform: scale(1) translate(10px, 0px);
+    }
+}
+
+@keyframes move2 {
+    0% {
+        transform: scale(1) translate(200%, 80%);
+    }
+
+    38% {
+        transform: scale(0.8, 1) translate(280%, 10%) rotate(160deg);
+    }
+
+    40% {
+        transform: scale(0.8, 1) translate(280%, 10%) rotate(160deg);
+    }
+
+    78% {
+        transform: scale(.5) translate(40%, -50%) rotate(-20deg);
+    }
+
+    80% {
+        transform: scale(.5) translate(40%, -50%) rotate(-20deg);
+    }
+
+    100% {
+        transform: scale(1) translate(200%, 80%);
+    }
 }
 
 /* Sharing button */
 .wrapper {
-	display: flex;
-	place-items: center;
-	position: absolute;
-	width: 100px;
-	padding-left: 85%;
-	margin-top: 8.2%;
+    display: flex;
+    place-items: center;
+    position: absolute;
+    width: 100px;
+    padding-left: 90%;
+    margin-top: 4.1%;
 }
 
 .wrapper :is(.btn, .link) {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 50px;
-	height: 50px;
-	background-color: #C0C0C0;
-	color: #151515;
-	border-radius: 50%;
-	z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #C0C0C0;
+    color: #151515;
+    border-radius: 50%;
 }
 
 .btn {
-	position: absolute;
-	border: none;
-	cursor: pointer;
-	/* z-index: 4; */
-	top: 50%;
-	right: 0.7%;
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    z-index: 4;
+    top: 50%;
+    right: 0.7%;
 }
 
 @media (max-width: 1300px) {
-	.wrapper {
-		margin-top: 10%;
-	}
-
-	.btn {
-		right: 1%;
-	}
+    .wrapper {
+        margin-top: 9%;
+    }
+	
+    .btn {
+        right: 1%;
+    }
 }
 
-@media (max-width: 1000px) {
-	.wrapper {
-		margin-top: 12.5%;
-	}
+@media (max-width: 1024px) {
+    .wrapper {
+        margin-top: 11%;
+		padding-left: 87%;
+    }
 
-	.btn {
-		right: 1%;
-	}
+    .btn {
+        right: 1%;
+    }
 }
 
 .active .btn,
 .btn:hover {
-	outline: 3px solid #0561ee;
-	outline-offset: -4px;
+    outline: 3px solid #0561ee;
+    outline-offset: -4px;
 }
 
 .item {
-	position: absolute;
-	list-style: none;
-	transition: transform 0.5s;
-	transition-delay: var(--d);
-	z-index: 4;
+    position: absolute;
+    list-style: none;
+    transition: transform 0.5s;
+    transition-delay: var(--d);
+    z-index: 3;
 }
 
 .item a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .wrapper.active .item:nth-child(1) {
-	transform: translateX(-65px) translateY(-30px);
+    transform: translateX(-65px) translateY(-30px);
 }
 
 .wrapper.active .item:nth-child(2) {
-	transform: translateY(-65px);
+    transform: translateY(-65px);
 }
 
 .wrapper.active .item:nth-child(3) {
-	transform: translateY(65px);
+    transform: translateY(65px);
 }
 
 .wrapper.active .item:nth-child(4) {
-	transform: translateY(40px) translateX(-65px);
+    transform: translateY(40px) translateX(-65px);
 }
 
 .link:hover {
-	color: #fff;
-	transition: background-color 0.5s;
+    color: #fff;
+    transition: background-color 0.5s;
 }
 
 .ig:hover {
-	background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
 
 .tw:hover {
-	background-color: #1da1f2;
+    background-color: #1da1f2;
 }
 
 .yt:hover {
-	background-color: #ff0000;
-	color: inherit;
+    background-color: #ff0000;
+    color: inherit;
 }
 
 .in:hover {
-	background-color: #0A66C2;
-	color: inherit;
+    background-color: #0A66C2;
+    color: inherit;
 }
 
 /* Information at Footer */
 .info {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .info h3 {
-	position: inherit;
-	padding-top: 120px;
-	margin: 0px;
-	bottom: 14%;
+    position: inherit;
+    padding-top: 120px;
+    margin: 0px;
+    bottom: 14%;
 }
 
 .info h2 {
-	position: inherit;
-	padding-top: 120px;
-	margin: 0px;
-	bottom: 3%;
+    position: inherit;
+    padding-top: 120px;
+    margin: 0px;
+    bottom: 3%;
 }
