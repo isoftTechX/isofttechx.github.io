@@ -13,7 +13,7 @@ function redirect() {
 
 function animateGif() {
     var gif = document.getElementById("gif")
-    gif.src = "/static/img/robot/reboot_robot.gif"
+    gif.src = "./static/img/robot/reboot_robot.gif"
     gif.setAttribute('onload', 'redirect();');
 }
 
