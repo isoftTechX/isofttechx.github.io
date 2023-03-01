@@ -1,6 +1,22 @@
 // var script = document.createElement('script');
-// script.src = '//code.jquery.com/jquery-1.11.0.min.js';
+// script.src = 'https://raw.githubusercontent.com/buzzfeed/libgif-js/master/libgif.js';
 // document.getElementsByTagName('head')[0].appendChild(script);
+function redirect() {
+    window.setTimeout(function() {
+        var dialog = document.getElementById("dialog-text")
+        dialog.innerHTML = "Hooray! I'm back online! Thank you for fixing me. Let's explore the right path together now."
+    }, 6700)
+    window.setTimeout(function () {
+        window.location = "../index.html";
+    }, 12000);
+}
+
+function animateGif() {
+    var gif = document.getElementById("gif")
+    gif.src = "/static/img/robot/reboot_robot.gif"
+    gif.setAttribute('onload', 'redirect();');
+}
+
 window.addEventListener('load', function () {
 
     const searchIcon = document.querySelector('.search-icon');
@@ -63,5 +79,21 @@ window.addEventListener('load', function () {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+
+    // var element = document.getElementById("gif");
+    // var supergif = new SuperGif({
+    //     gif: element,
+    //     progressbar_height: 0,
+    //     auto_play: false,
+    // });
+
+
+    const myGIF = document.getElementById("gif");
+
+    myGIF.addEventListener("load", function () {
+        console.log("GIF animation completed.");
+    });
+
 })
 
