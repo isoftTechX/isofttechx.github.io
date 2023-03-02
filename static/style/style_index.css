@@ -22,7 +22,7 @@ body {
 	background-repeat: no-repeat;
 	position: relative;
 
-	min-height: 1000px;
+	height: 1080px;
 }
 
 /* Header section */
@@ -161,17 +161,18 @@ header {
 
 .title h1 {
 	display: inline-block;
-	font-size: 5rem;
+	font-size: 4.5rem;
 	color: #fff;
 	font-family: 'Orbitron', cursive;
 	font-weight: bold;
 	cursor: context-menu;
 	text-transform: uppercase;
-	text-align: center;
+	text-align: right;
 	text-shadow: 0 0 10px #dcdcdc;
 	word-wrap: normal;
-	width: 500px;
-	margin-top: 10%;
+	width: 600px;
+	margin-top: 5%;
+	padding-right: 20px;
 }
 
 /* Card Stylesheet */

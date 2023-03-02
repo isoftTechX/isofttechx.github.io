@@ -1,44 +1,34 @@
-var script = document.createElement('script');
-script.src = '//code.jquery.com/jquery-1.11.0.min.js';
-document.getElementsByTagName('head')[0].appendChild(script);
+// var script = document.createElement('script');
+// script.src = '//code.jquery.com/jquery-1.11.0.min.js';
+// document.getElementsByTagName('head')[0].appendChild(script);
 
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds) {
-            break;
-        }
+function toggleDetails(elm) {
+    var element = document.getElementById(elm);
+    var hidden_text = element.querySelector(".hidden-text-body");
+    var element_text = element.querySelector(".text-body");
+    var button = element.querySelector(".toggleDetails-button");
+    var button_text = button.querySelector(".text");
+    var button_svg = button.querySelector(".arrow");
+    
+    if (button_text.textContent.trim() === "Show the details") {
+        // globalText(element_text.textContent);
+        // element_text.innerHTML = hidden_text.innerHTML;
+        hidden_text.style.display = "block";
+        element_text.style.display = "none"
+        element.style.height = "auto";
+        element.style.alignItems = "initial"
+        button_text.innerText = "Hide the details";
+        button_svg.style.transform = "translateY(-50%) rotate(-90deg)";
     }
-}
-
-function changeText(element, num) {
-    var span = element.querySelector('span');
-    var text = span.innerHTML;
-    let timeoutId;
-
-    if (num === 1) {
-        timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br><br>Developing customized software applications tailored to meet the unique needs of your clients."
-        }, 400);
-    }
-    if (num === 2) {
-        timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br><br>Designing and building web-based applications to provide clients with the ability to manage their businesses online."
-        }, 400);
-    }
-    if (num === 3) {
-        timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br><br>Designing intuitive and visually appealing user interfaces that enhance the user experience and increase engagement."
-        }, 400);
-    }
-    if (num === 4) {
-        timeoutId = setTimeout(function () {
-            span.innerHTML = text + ": <br><br>Offering ongoing maintenance and support services to ensure the continued optimal performance of the software you develop."
-        }, 400);
-    }
-    element.onmouseout = function () {
-        clearTimeout(timeoutId);
-        span.innerHTML = text;
+    
+    else {
+        // element_text.innerHTML = text;
+        hidden_text.style.display = "none";
+        element_text.style.display = "block";
+        element.style.height = "auto";
+        element.style.alignItems = "center"
+        button_text.innerText = "Show the details";
+        button_svg.style.transform = "translateY(-50%) rotate(-270deg)";
     }
 }
 
@@ -72,7 +62,7 @@ window.addEventListener('load', function () {
     });
 
 
-    var text = "Where innovation meets technology";
+    var text = "Code Your Vision";
     var i = 0;
 
     function typeWriter() {
@@ -101,6 +91,7 @@ window.addEventListener('load', function () {
     }
     btnEl.addEventListener('click', toggleOptions)
 
+
     const sections = document.querySelectorAll('.animate');
     const options = {
         threshold: 0.5
@@ -117,25 +108,6 @@ window.addEventListener('load', function () {
     sections.forEach(section => {
         observer.observe(section);
     });
-
-
-    const cards = document.querySelectorAll('.card');
-
-    if (window.innerWidth < 1500) {
-        const randomIndices = [];
-        while (randomIndices.length < 2) {
-            const randomIndex = Math.floor(Math.random() * cards.length);
-            if (!randomIndices.includes(randomIndex)) {
-                randomIndices.push(randomIndex);
-            }
-        }
-
-        randomIndices.forEach(index => {
-            console.log(cards[index])
-            cards[index].classList.add('hide');
-        });
-    }
-
 
 })
 
