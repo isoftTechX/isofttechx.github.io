@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { projects, type Project } from "@/data/content";
 import { Reveal } from "./Reveal";
@@ -19,44 +19,74 @@ function MayaMotif() {
   );
 }
 
-/** ecoReward Bin: an item is detected, dropped into the bin, and a reward coin responds. */
+/** ecoReward Bin: three bottle drops, a short beat, one coin, a rest. A timer drives the sequence; only one element is mounted at a time. */
+const ECO_SEQUENCE = [
+  { kind: "drop", ms: 3000 },
+  { kind: "drop", ms: 3000 },
+  { kind: "drop", ms: 3000 },
+  { kind: "beat", ms: 1200 },
+  { kind: "coin", ms: 3300 },
+  { kind: "rest", ms: 2000 },
+] as const;
+
 function EcoMotif() {
+  const [i, setI] = useState(ECO_SEQUENCE.length - 1); // open on the rest step for a short wait
+  const [reduced, setReduced] = useState(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const on = () => setReduced(mq.matches);
+    if (mq.addEventListener) {
+      mq.addEventListener("change", on);
+      return () => mq.removeEventListener("change", on);
+    } else {
+      mq.addListener(on);
+      return () => mq.removeListener(on);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (reduced) return;
+    const t = window.setTimeout(() => setI((n) => (n + 1) % ECO_SEQUENCE.length), ECO_SEQUENCE[i].ms);
+    return () => window.clearTimeout(t);
+  }, [i, reduced]);
+
+  const kind = reduced ? "still" : ECO_SEQUENCE[i].kind;
+
+  const coin = (
+  <>
+    <circle cx="100" cy="45" r="16" />
+    {/* ₹ sign: two bars, a bowl and a diagonal leg */}
+    <path d="M94 36h12M94 41h12M94 36h3a5.5 5.5 0 0 1 0 11h-3l8 7" strokeWidth="1.75" />
+  </>
+);
+
   return (
-    <div aria-hidden className="relative aspect-square w-full max-w-[22rem]">
-      <svg viewBox="0 0 200 200" className="block h-full w-full text-moss" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        {/* outer dotted orbit */}
-        <circle cx="100" cy="100" r="92" strokeWidth="2" strokeDasharray="0.1 7" opacity="0.6" />
+    <div aria-hidden className="relative aspect-square w-full max-w-[28rem]">
+      <svg viewBox="30 10 140 160" className="block h-full w-full text-moss" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <defs>
+          <clipPath id="eco-clip">
+            <rect x="0" y="0" width="200" height="104" />
+          </clipPath>
+        </defs>
 
-        {/* detection brackets around the incoming item */}
-        <g opacity="0.7" strokeWidth="1.75">
-          <path d="M82 42v-6h6" />
-          <path d="M112 36h6v6" />
-          <path d="M118 88v6h-6" />
-          <path d="M88 94h-6v-6" />
+        <g clipPath="url(#eco-clip)">
+          {kind === "drop" && (
+            // key remounts the node so each drop restarts from the top
+            <g key={i} className="eco-drop">
+              <path d="M96 26h8v8l5 7v19a3 3 0 0 1-3 3H94a3 3 0 0 1-3-3V41l5-7z" />
+            </g>
+          )}
+          {kind === "coin" && <g key={i} className="eco-coin">{coin}</g>}
+          {kind === "still" && <g>{coin}</g>}
         </g>
 
-        {/* item (bottle) falling toward the bin */}
-        <g className="eco-drop" stroke="#F3F0EA">
-          <path d="M96 44h8v6l4 6v22a3 3 0 0 1-3 3H95a3 3 0 0 1-3-3V56l4-6z" />
-          <path d="M92 62h16" opacity="0.5" />
-        </g>
-
-        {/* bin: lid + body */}
-        <path d="M54 108h92" />
-        <path d="M88 108v-6h24v6" />
-        <path d="M62 108l7 62h62l7-62" />
-        {/* recycle mark */}
-        <path d="M108 136A10 10 0 1 0 110 145" />
-        <path d="M106 129v7h7" />
-
-        {/* flow from bin to reward */}
-        <path className="eco-flow" d="M140 112Q160 104 158 80" strokeDasharray="4 6" opacity="0.7" />
-
-        {/* reward coin */}
-        <g className="eco-pop">
-          <circle cx="158" cy="62" r="16" />
-          <path d="M158 54v16M150 62h16" />
-        </g>
+        <path d="M58 104h84" />
+        <path d="M68 104l6 60h52l6-60" />
       </svg>
     </div>
   );

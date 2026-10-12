@@ -4,11 +4,6 @@ export const navItems = [
   { label: "contact", id: "contact" },
 ] as const;
 
-export const site = {
-  name: "isoftTechX",
-  founded: 2021,
-};
-
 export interface Project {
   id: string;
   index: string;

@@ -43,19 +43,30 @@
    transform never competes with a Tailwind transform utility on the same element. */
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes core-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: .75; } }
+/* ecoReward Bin: each animation plays once; React swaps the elements when one ends.*/
+/* Bottle (3s): fade in, hover, fall 1.6s into the bin, hidden. */
 @keyframes eco-drop {
-  0% { transform: translateY(0); opacity: 0; }
-  12% { opacity: 1; }
-  60% { transform: translateY(22px); opacity: 1; }
-  85% { transform: translateY(28px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 0; }
+  0%      { transform: translateY(0);    opacity: 0; }
+  15%     { transform: translateY(0);    opacity: 1; }
+  30%     { transform: translateY(0);    opacity: 1; animation-timing-function: cubic-bezier(.4, 0, .6, 1); }
+  83%     { transform: translateY(80px); opacity: 1; }
+  83.01%, 100% { transform: translateY(80px); opacity: 0; }
 }
+/* Coin (3.3s): rises 1.6s with the same easing, holds, fades. */
+@keyframes eco-coin {
+  0%      { transform: translateY(80px); opacity: 1; animation-timing-function: cubic-bezier(.4, 0, .6, 1); }
+  48%     { transform: translateY(0);    opacity: 1; }
+  88%     { transform: translateY(0);    opacity: 1; }
+  100%    { transform: translateY(0);    opacity: 0; }
+}
+
+.eco-drop { animation: eco-drop 3s linear both; }
+.eco-coin { animation: eco-coin 3.3s linear both; }
 
 .spin-slow { animation: spin 40s linear infinite; }
 .spin-rev { animation: spin 28s linear infinite reverse; }
 .spin-fast { animation: spin 14s linear infinite; }
 .core-pulse { animation: core-pulse 3.2s ease-in-out infinite; }
-.eco-drop { animation: eco-drop 3.6s ease-in-out infinite; }
 
 .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 100; background: #F3F0EA; color: #0B0B0D; padding: .6rem 1rem; font-weight: 600; }
 .skip-link:focus { top: 1rem; }
@@ -74,5 +85,5 @@
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
   /* Diagrams: stable, fully visible static version. */
-  .spin-slow, .spin-rev, .spin-fast, .core-pulse, .eco-drop { animation: none; }
+  .spin-slow, .spin-rev, .spin-fast, .core-pulse { animation: none; }
 }

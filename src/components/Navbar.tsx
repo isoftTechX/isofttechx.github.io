@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/content";
 
+const navIds = navItems.map((n) => n.id);
+
 function useActiveSection(ids: readonly string[]) {
   const [active, setActive] = useState<string>("");
   useEffect(() => {
@@ -32,9 +34,10 @@ export function Wordmark({ className = "" }: { className?: string }) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const active = useActiveSection(navItems.map((n) => n.id));
+  const active = useActiveSection(navIds);
   const panel = useRef<HTMLDivElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
+  const restoreFocusRef = useRef(false);
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 16);
@@ -49,24 +52,37 @@ export function Navbar() {
     const focusables = () => Array.from(p.querySelectorAll<HTMLElement>("a, button"));
     focusables()[0]?.focus();
     document.body.style.overflow = "hidden";
-    const close = () => setOpen(false);
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") return close();
+      if (e.key === "Escape") {
+        restoreFocusRef.current = true;
+        setOpen(false);
+        return;
+      }
       if (e.key !== "Tab") return;
       const f = focusables();
       const first = f[0], last = f[f.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     };
+
     const mq = window.matchMedia("(min-width: 768px)");
-    mq.addEventListener("change", close);
+    const closeOnDesktop = () => {
+      restoreFocusRef.current = false;
+      setOpen(false);
+    };
+    mq.addEventListener("change", closeOnDesktop);
     document.addEventListener("keydown", onKey);
     const btn = toggle.current;
+
     return () => {
-      mq.removeEventListener("change", close);
+      mq.removeEventListener("change", closeOnDesktop);
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
-      btn?.focus();
+      if (restoreFocusRef.current) {
+        restoreFocusRef.current = false;
+        btn?.focus();
+      }
     };
   }, [open]);
 
@@ -91,14 +107,30 @@ export function Navbar() {
         <div ref={panel} role="dialog" aria-modal="true" aria-label="Site menu" className="fixed inset-0 z-[60] flex flex-col bg-ink px-5 py-3 md:hidden">
           <div className="flex h-16 items-center justify-between">
             <Wordmark />
-            <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="grid h-12 w-12 place-items-center border border-line hover:border-violet">
+            <button
+              type="button"
+              onClick={() => {
+                restoreFocusRef.current = true;
+                setOpen(false);
+              }}
+              aria-label="Close menu"
+              className="grid h-12 w-12 place-items-center border border-line hover:border-violet"
+            >
               <X aria-hidden />
             </button>
           </div>
           <nav aria-label="Mobile" className="mt-8 flex flex-col">
             {navItems.map((n) => (
-              <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)}
-                className={`border-b border-line py-5 text-4xl font-semibold tracking-tight ${active === n.id ? "text-violet-soft" : ""}`}>
+              <a
+                key={n.id}
+                href={`#${n.id}`}
+                onClick={() => {
+                  restoreFocusRef.current = false;
+                  setOpen(false);
+                }}
+                aria-current={active === n.id ? "location" : undefined}
+                className={`border-b border-line py-5 text-4xl font-semibold tracking-tight ${active === n.id ? "text-violet-soft" : ""}`}
+              >
                 {n.label}
               </a>
             ))}
