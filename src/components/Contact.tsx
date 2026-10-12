@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowUpRight, Github, Instagram, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 import { socials, type SocialId } from "@/data/content";
 
 /** Lucide's brand set has no X mark, so it is drawn inline with the same 2px stroke. */
@@ -23,7 +23,7 @@ const icons: Record<SocialId, ReactNode> = {
  * Base card shell.
  * - rounded-lg  → soft corners; overflow-hidden clips the bg precisely to the radius.
  * - Below lg (< 1024 px, mobile & tablet): icon-only, centred content.
- * - From lg up (desktop): icon + label + handle row with arrow.
+ * - From lg up (desktop): icon + label + handle row.
  */
 const card =
   "group relative flex overflow-hidden rounded-lg border transition-colors" +
@@ -57,10 +57,6 @@ export function Contact() {
               </span>
             );
 
-            const arrow = s.href && (
-              <ArrowUpRight aria-hidden className="hidden h-5 w-5 shrink-0 text-mute transition-colors group-hover:text-violet-soft lg:block" />
-            );
-
             return (
               <li key={s.id}>
                 {s.href ? (
@@ -73,7 +69,6 @@ export function Contact() {
                   >
                     {iconBox}
                     {textBlock}
-                    {arrow}
                   </a>
                 ) : (
                   <div className={`${card} cursor-default border-dashed border-line text-mute`}>

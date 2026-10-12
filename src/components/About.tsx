@@ -19,7 +19,7 @@ export function About() {
           <div className="space-y-6 md:col-span-5 md:col-start-8 md:pt-10">
             <p className="text-xl font-semibold leading-snug">
               isoftTechX started with a simple instinct: <br /> don't just imagine what technology could become.<br />
-              <span className="text-4xl font-extrabold">start building it!</span>
+              <span className="font-semibold">start building it!</span>
             </p>
             <p className="copy">Founded in 2021 by a teenage programmers, the initiative grew from a curiosity for code into an ongoing pursuit of intelligent systems, solution products, and ideas with practical purpose.</p>
             <p className="copy">Today, the focus is on building our own technology: learning through experimentation, refining through iteration, and turning ambitious ideas into working products.</p>
