@@ -36,17 +36,17 @@ export function About() {
                   <div
                     className={`group flex w-full flex-col border p-6 transition-colors sm:p-8 lg:min-h-[22rem] ${
                       m.invite
-                        ? "border-dashed border-violet/60 bg-violet/[0.06] hover:border-violet-soft"
+                        ? "border-dashed border-moss/60 bg-moss/[0.06] hover:border-moss"
                         : "border-line bg-surface hover:border-paper/30"
                     }`}
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <span className={`label ${m.invite ? "text-violet-soft" : ""}`}>{m.role}</span>
-                      {m.invite && <span className="label text-violet-soft">open invitation</span>}
+                      <span className={`label ${m.invite ? "text-moss" : ""}`}>{m.role}</span>
+                      {m.invite && <span className="label text-moss">open invitation</span>}
                     </div>
                     <div className="mt-16 lg:mt-auto lg:pt-16">
                       <p
-                        className={`font-extrabold tracking-tight [overflow-wrap:anywhere] ${m.invite ? "text-violet-soft" : ""}`}
+                        className={`font-extrabold tracking-tight [overflow-wrap:anywhere] ${m.invite ? "text-moss" : ""}`}
                         style={{ fontSize: "clamp(1.75rem, 2.6vw, 2.5rem)", lineHeight: 1.05 }}
                       >
                         {m.name.split(" ").map((part, idx) => (
@@ -58,7 +58,7 @@ export function About() {
                           </span>
                         ))}
                       </p>
-                      <p className={`mt-6 border-l-2 pl-4 leading-relaxed text-paper/90 ${m.invite ? "border-violet-soft" : "border-violet"}`}>
+                      <p className={`mt-6 border-l-2 pl-4 leading-relaxed text-paper/90 ${m.invite ? "border-moss" : "border-violet"}`}>
                         “{m.line}”
                       </p>
                     </div>
