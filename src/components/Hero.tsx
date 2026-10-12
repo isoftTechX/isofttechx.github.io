@@ -10,7 +10,7 @@ export function Hero() {
       <div className="wrap relative py-12 md:py-16">
         <p className="label rise">the future has a source code</p>
         <h1 id="hero-title" className="rise mt-8 text-huge font-extrabold" style={{ animationDelay: ".08s" }}>
-          tomorrow isn't imagined<br />
+          tomorrow isn't imagined,<br />
           <span className="text-violet-soft text-mega">it's engineered.</span>
         </h1>
         <div className="mt-14 grid gap-10 md:grid-cols-12">
