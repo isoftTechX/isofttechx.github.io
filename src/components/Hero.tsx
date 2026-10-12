@@ -3,6 +3,18 @@ import { ArrowDown } from "lucide-react";
 const primary = "inline-flex min-h-12 items-center justify-center gap-2 bg-paper px-6 py-3 font-semibold text-ink transition-colors hover:bg-violet-soft";
 const ghost = "inline-flex min-h-12 items-center justify-center gap-2 border border-paper/30 px-6 py-3 font-semibold transition-colors hover:border-violet-soft hover:text-violet-soft";
 
+function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+}
+
 export function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="screen relative overflow-hidden">
@@ -18,8 +30,12 @@ export function Hero() {
             We build intelligent systems and products through experimentation, engineering, and a belief that good ideas deserve to become real.
           </p>
           <div className="rise flex flex-wrap gap-3 md:col-span-6 md:col-start-7" style={{ animationDelay: ".3s" }}>
-            <a href="#projects" className={primary}>explore projects <ArrowDown aria-hidden className="h-4 w-4" /></a>
-            <a href="#team-members" className={ghost}>meet the team</a>
+            <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className={primary}>
+              explore projects <ArrowDown aria-hidden className="h-4 w-4" />
+            </a>
+            <a href="#team-members" onClick={(e) => scrollToSection(e, "team-members")} className={ghost}>
+              meet the team
+            </a>
           </div>
         </div>
       </div>

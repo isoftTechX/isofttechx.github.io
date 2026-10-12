@@ -16,7 +16,7 @@
 
 @layer components {
   .wrap { @apply mx-auto w-full max-w-page px-5 sm:px-8 lg:px-12; }
-  .rule { @apply border-t border-line; }
+  .rule { @apply border-b border-line; }
   .label { @apply text-xs uppercase text-mute; letter-spacing: 0.14em; }
   .copy { @apply text-lg leading-relaxed text-mute; max-width: 60ch; }
   /* Navbar destinations. The sticky header is ~65px, so the section jumps to the very top of the

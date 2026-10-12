@@ -104,7 +104,7 @@ function ProjectEntry({ p, flip }: { p: Project; flip: boolean }) {
   const panel = useId();
   const accent = p.id === "mayave" ? "text-violet-soft" : "text-moss";
   return (
-    <article className="rule py-14 md:py-20" aria-labelledby={`${p.id}-name`}>
+    <article className="border-b border-line py-14 md:py-20" aria-labelledby={`${p.id}-name`}>
       <Reveal>
         <div className="grid gap-10 md:grid-cols-12 md:items-center md:gap-8">
           <div className={`md:col-span-5 ${flip ? "md:order-2 md:col-start-8" : ""}`}>
