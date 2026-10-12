@@ -5,9 +5,9 @@ const ghost = "inline-flex min-h-12 items-center justify-center gap-2 border bor
 
 export function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden">
+    <section id="top" aria-labelledby="hero-title" className="screen relative overflow-hidden">
       <div className="grid-bg absolute inset-0" aria-hidden />
-      <div className="wrap relative pb-20 pt-16 md:pb-32 md:pt-28">
+      <div className="wrap relative py-12 md:py-16">
         <p className="label rise">an independent technology venture</p>
         <h1 id="hero-title" className="rise mt-8 text-mega font-extrabold" style={{ animationDelay: ".08s" }}>
           ideas into<br />
