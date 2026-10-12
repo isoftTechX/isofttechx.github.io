@@ -23,14 +23,14 @@ const icons: Record<SocialId, ReactNode> = {
  * Base card shell.
  * - rounded-lg  → soft corners; overflow-hidden clips the bg precisely to the radius.
  * - Below lg (< 1024 px, mobile & tablet): icon-only, centred content.
- * - From lg up (desktop): icon + label + handle row.
+ * - From lg up (desktop): icon + label row.
  */
 const card =
   "group relative flex overflow-hidden rounded-lg border transition-colors" +
   /* narrow & tablet: centred icon-only */
   " min-h-16 w-full items-center justify-center p-4 sm:min-h-20" +
   /* desktop: left-aligned row */
-  " lg:min-h-28 lg:justify-start lg:gap-4 lg:p-5";
+  " lg:min-h-20 lg:justify-start lg:gap-4 lg:p-5";
 
 export function Contact() {
   return (
@@ -53,7 +53,6 @@ export function Contact() {
               /* Hidden below lg (mobile & tablet); visible on desktop (lg+) */
               <span className="hidden min-w-0 flex-1 lg:block">
                 <span className="block text-xl font-semibold">{s.label}</span>
-                <span className="block truncate text-mute">{s.href ? s.handle : "not set up yet"}</span>
               </span>
             );
 
@@ -64,7 +63,7 @@ export function Contact() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${s.label}, ${s.handle} (opens in a new tab)`}
+                    aria-label={`${s.label} (opens in a new tab)`}
                     className={`${card} border-line bg-surface hover:border-violet-soft hover:bg-ink`}
                   >
                     {iconBox}
