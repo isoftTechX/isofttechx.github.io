@@ -21,7 +21,7 @@ export function About() {
               isoftTechX started with a simple instinct: <br /> don't just imagine what technology could become,<br />
               <span className="font-semibold">instead START BUILDING IT!</span>
             </p>
-            <p className="copy">founded in 2021 by a teenage programmers, the initiative grew from a curiosity for code into an ongoing pursuit of intelligent systems, solution products, and ideas with practical purpose.</p>
+            <p className="copy">founded in 2021 by teenage programmers, the initiative grew from a curiosity for code into an ongoing pursuit of intelligent systems, solution products, and ideas with practical purpose.</p>
             <p className="copy">Today, the focus is on building our own technology: learning through experimentation, refining through iteration, and turning ambitious ideas into working products.</p>
           </div>
         </div>
