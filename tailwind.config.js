@@ -16,7 +16,7 @@ export default {
         sans: ["ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
-        mega: ["clamp(2.6rem, 11vw, 9.5rem)", { lineHeight: "0.92", letterSpacing: "-0.05em" }],
+        mega: ["clamp(3.6rem, 11vw, 9.5rem)", { lineHeight: "0.92", letterSpacing: "-0.05em" }],
         huge: ["clamp(2rem, 5.6vw, 4.75rem)", { lineHeight: "1", letterSpacing: "-0.04em" }],
         big: ["clamp(1.5rem, 3vw, 2.5rem)", { lineHeight: "1.08", letterSpacing: "-0.03em" }],
       },
