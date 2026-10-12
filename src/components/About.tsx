@@ -1,6 +1,12 @@
 import { team } from "@/data/content";
 import { Reveal } from "./Reveal";
 
+const nameFontSizes: Record<string, string> = {
+  Gautam: "2rem",
+  Yadav: "2.1rem",
+  YOU: "2.5rem",
+};
+
 export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="screen bg-ink">
@@ -40,7 +46,15 @@ export function About() {
                         className={`font-extrabold tracking-tight [overflow-wrap:anywhere] ${m.invite ? "text-violet-soft" : ""}`}
                         style={{ fontSize: "clamp(1.75rem, 2.6vw, 2.5rem)", lineHeight: 1.05 }}
                       >
-                        {m.name}
+                        {m.name.split(" ").map((part, idx) => (
+                          <span
+                            key={idx}
+                            className="block"
+                            style={nameFontSizes[part] ? { fontSize: nameFontSizes[part] } : undefined}
+                          >
+                            {part}
+                          </span>
+                        ))}
                       </p>
                       <p className={`mt-6 border-l-2 pl-4 leading-relaxed text-paper/90 ${m.invite ? "border-violet-soft" : "border-violet"}`}>
                         “{m.line}”

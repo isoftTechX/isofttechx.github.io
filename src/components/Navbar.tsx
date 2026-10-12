@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/content";
+import logo from "@/img/logo_white.png";
 
 const navIds = navItems.map((n) => n.id);
 
@@ -23,10 +24,21 @@ function useActiveSection(ids: readonly string[]) {
   return active;
 }
 
-export function Wordmark({ className = "" }: { className?: string }) {
+export function Wordmark({ className = "", onClick }: { className?: string; onClick?: () => void }) {
   return (
-    <a href="#top" aria-label="isoftTechX — back to top" className={`text-xl font-extrabold tracking-tighter ${className}`}>
-      isoft<span className="text-violet-soft">Tech</span>X
+    <a
+      href="#top"
+      onClick={onClick}
+      aria-label="isoftTechX — back to top"
+      className={`inline-flex items-center transition-opacity hover:opacity-85 ${className}`}
+    >
+      <img
+        src={logo}
+        alt="isoftTechX home"
+        className="h-8 w-auto object-contain md:h-9"
+        width={158}
+        height={36}
+      />
     </a>
   );
 }
@@ -106,7 +118,7 @@ export function Navbar() {
       {open && (
         <div ref={panel} role="dialog" aria-modal="true" aria-label="Site menu" className="fixed inset-0 z-[60] flex flex-col bg-ink px-5 py-3 md:hidden">
           <div className="flex h-16 items-center justify-between">
-            <Wordmark />
+            <Wordmark onClick={() => { restoreFocusRef.current = false; setOpen(false); }} />
             <button
               type="button"
               onClick={() => {
