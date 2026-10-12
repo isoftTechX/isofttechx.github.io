@@ -1,6 +1,6 @@
 # isoftTechX website
 
-Independent technology venture website for isoftTechX.
+isoftTechX builds AI, intelligent systems, and software.
 
 **Stack:** React 18 · Vite 5 · TypeScript · Tailwind CSS 3 · Lucide React
 
