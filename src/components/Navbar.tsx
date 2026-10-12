@@ -23,11 +23,28 @@ function useActiveSection(ids: readonly string[]) {
   return active;
 }
 
+function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+}
+
 export function Wordmark({ className = "", onClick }: { className?: string; onClick?: () => void }) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    scrollToSection(e, "top");
+    onClick?.();
+  };
+
   return (
     <a
       href="#top"
-      onClick={onClick}
+      onClick={handleClick}
       aria-label="isoftTechX — back to top"
       className={`inline-flex items-center transition-opacity hover:opacity-85 ${className}`}
     >
@@ -62,6 +79,7 @@ export function Navbar() {
             <a
               key={n.id}
               href={`#${n.id}`}
+              onClick={(e) => scrollToSection(e, n.id)}
               aria-current={active === n.id ? "location" : undefined}
               className={`inline-flex items-center py-2 text-[0.95rem] font-medium underline-offset-8 hover:text-violet-soft ${active === n.id ? "text-violet-soft underline decoration-2" : "text-paper"}`}
             >
