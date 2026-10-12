@@ -1,148 +1,20 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>isoftTechX</title>
-    <meta name="description"
-        content="isoftTechX is dedicated to pushing the boundaries of what's possible and creating a smarter tomorrow.">
-    <link rel="icon" href="static/img/icon_grey.png" type="image/png">
-    <link rel="shortcut icon" href="static/img/icon_grey.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="static/style/style_index.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
-    <script src="./static/script/script_index.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E2RP5PY6XJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-E2RP5PY6XJ');
-    </script>
-</head>
-
-<body>
-    <div class="background">
-        <header>
-            <figure title="isoftTechX Logo" class="logo">
-                <img src="static/img/logo_grey.png" alt="My Logo">
-            </figure>
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li>
-                        <a id="active-page" href="index.html">Home
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="services.html">Services
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="us.html">About
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact
-                            <span></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="title">
-                <h1 id="typewriter"></h1>
-            </div>
-        </main>
-    </div>
-    <section class="card-slider">
-        <div class="slider-container">
-            <div class="card">
-                Experience the power of youth-led innovation with isoftTechX - <br>a cutting-edge software
-                development company.
-            </div>
-            <div class="card">
-                Get ready for the future of software development with isoftTechX - <br>founded by a
-                teen,<br> driven by innovation.
-            </div>
-            <div class="card">
-                Revolutionize your digital experience with isoftTechX - <br>where youth, creativity, and
-                technology meet.
-            </div>
-        </div>
-    </section>
-    <section class="value-proposition animate">
-        <h2>
-            Innovative and cutting-edge software solutions
-        </h2>
-        <p>
-            At isoftTechX, we are passionate about shaping the future with innovative and cutting-edge software
-            solutions. Our team of expert developers and designers are dedicated to delivering customized software that
-            not only meets the unique needs of each of our clients, but also helps them to unlock their full potential
-            and stay ahead of the competition. <br>
-        </p>
-    </section>
-    <section class="services animate">
-        <h2>Our Services</h2>
-        <div class="service-card">
-            <p onmouseover="changeText(this, 1)"><span>Custom Software Development</span></p>
-            <p onmouseover="changeText(this, 2)"><span>Web Application Development</span></p>
-            <p onmouseover="changeText(this, 3)"><span>User Interface and Experience Design</span></p>
-            <p onmouseover="changeText(this, 4)"><span>Software Maintenance and Support</span></p>
-        </div>
-        <a href="services.html" class="service-button">Learn More</a>
-    </section>
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="wave-container">
-                <svg id="part1" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 350">
-                    <path
-                        d="M156.4,339.5c31.8-2.5,59.4-26.8,80.2-48.5c28.3-29.5,40.5-47,56.1-85.1c14-34.3,20.7-75.6,2.3-111  c-18.1-34.8-55.7-58-90.4-72.3c-11.7-4.8-24.1-8.8-36.8-11.5l-0.9-0.9l-0.6,0.6c-27.7-5.8-56.6-6-82.4,3c-38.8,13.6-64,48.8-66.8,90.3c-3,43.9,17.8,88.3,33.7,128.8c5.3,13.5,10.4,27.1,14.9,40.9C77.5,309.9,111,343,156.4,339.5z" />
-                </svg>
-                <svg id="part2" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 350">
-                    <path
-                        d="M156.4,339.5c31.8-2.5,59.4-26.8,80.2-48.5c28.3-29.5,40.5-47,56.1-85.1c14-34.3,20.7-75.6,2.3-111  c-18.1-34.8-55.7-58-90.4-72.3c-11.7-4.8-24.1-8.8-36.8-11.5l-0.9-0.9l-0.6,0.6c-27.7-5.8-56.6-6-82.4,3c-38.8,13.6-64,48.8-66.8,90.3c-3,43.9,17.8,88.3,33.7,128.8c5.3,13.5,10.4,27.1,14.9,40.9C77.5,309.9,111,343,156.4,339.5z" />
-                </svg>
-            </div>
-            <div class="wrapper">
-                <button class="btn">
-                    <i class="ri-share-line"></i>
-                </button>
-                <ul class="list">
-                    <li class="item">
-                        <a href="https://www.instagram.com/isofttechx/" target="_blank" class="link ig">
-                            <i class="ri-instagram-line"></i>
-                        </a>
-                    </li>
-                    <li class="item" style="--d: 0.25s">
-                        <a href="https://www.linkedin.com/company/isofttechx/" target="_blank" class="link in">
-                            <i class="ri-linkedin-line"></i>
-                        </a>
-                    </li>
-                    <li class="item" style="--d: 0.5s">
-                        <a href="https://twitter.com/isofttechx" target="_blank" class="link tw">
-                            <i class="ri-twitter-line"></i>
-                        </a>
-                    </li>
-                    <li class="item" style="--d: 0.7.5s">
-                        <a href="https://www.youtube.com/@isofttechx" target="_blank" class="link yt">
-                            <i class="ri-youtube-line"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="info">
-                <h2>isoftTechX &copy; 2021 -
-                    <script>document.write(new Date().getFullYear())</script>
-                </h2>
-            </div>
-        </div>
-    </footer>
-</body>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B0B0D" />
+    <title>isoftTechX — Independent technology venture</title>
+    <meta name="description" content="isoftTechX builds original products at the intersection of intelligent software, emerging technology and real-world problems." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"isoftTechX","foundingDate":"2021","description":"An independent, product-focused technology venture building original AI and technology products."}</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>isoftTechX is an independent, product-focused technology venture. Please enable JavaScript to view this site.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
