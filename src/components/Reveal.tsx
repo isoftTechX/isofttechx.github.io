@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-/** Content is visible by default; it only animates when IntersectionObserver is available. */
+/** Visible by default; only animates when the element starts below the fold. */
 export function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [armed, setArmed] = useState(false);
@@ -9,8 +9,7 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   useEffect(() => {
     const el = ref.current;
     if (!el || !("IntersectionObserver" in window)) return;
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight) return; // already on screen: don't hide it
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
     setArmed(true);
     const io = new IntersectionObserver(
       ([e]) => {

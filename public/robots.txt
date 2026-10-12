@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://isofttechx.github.io/sitemap.xml
-# Replace isofttechx.github.io with your production domain before deploying.
