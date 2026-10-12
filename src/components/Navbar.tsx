@@ -55,7 +55,7 @@ export function Navbar() {
 
   return (
     <header className={`sticky top-0 z-50 border-b transition-colors duration-300 ${scrolled ? "border-line bg-ink/90 backdrop-blur" : "border-transparent bg-ink"}`}>
-      <div className="wrap flex h-16 items-center justify-between">
+      <div className="wrap flex h-16 items-center justify-center md:justify-between">
         <Wordmark />
         <nav aria-label="Primary" className="hidden items-center gap-9 md:flex">
           {navItems.map((n) => (
