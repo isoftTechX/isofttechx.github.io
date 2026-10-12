@@ -91,8 +91,8 @@ export interface Social {
 
 /** Company profiles. Change URLs here; the Contact section reads from this list. */
 export const socials: Social[] = [
-  { id: "instagram", label: "Instagram", handle: "@isofttechx", href: "https://www.instagram.com/isofttechx/" },
-  { id: "linkedin", label: "LinkedIn", handle: "isofttechx", href: "https://www.linkedin.com/company/isofttechx/" },
-  { id: "github", label: "GitHub", handle: "isofttechx", href: "https://github.com/isofttechx" },
-  { id: "x", label: "X", handle: "@isofttechx", href: "https://x.com/isofttechx" },
+  { id: "instagram", label: "Instagram", href: "https://www.instagram.com/isofttechx/" },
+  { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/isofttechx/" },
+  { id: "github", label: "GitHub", href: "https://github.com/isofttechx" },
+  { id: "x", label: "X", href: "https://x.com/isofttechx" },
 ];
