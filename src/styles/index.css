@@ -19,6 +19,18 @@
   .rule { @apply border-t border-line; }
   .label { @apply text-xs uppercase text-mute; letter-spacing: 0.14em; }
   .copy { @apply text-lg leading-relaxed text-mute; max-width: 60ch; }
+  /* Navbar destinations. The sticky header is ~65px, so the section jumps to the very top of the
+     viewport (scroll-margin 0) and clears the header with its own top padding. min-height only:
+     longer content grows and scrolls normally. */
+  .screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-top: 4.5rem;
+    scroll-margin-top: 0;
+  }
 }
 
 @keyframes rise { from { opacity: 0; transform: translateY(0.5em); } to { opacity: 1; transform: none; } }
@@ -26,6 +38,24 @@
 
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
+
+/* Project diagrams. Each animated element is its own node so the animation's
+   transform never competes with a Tailwind transform utility on the same element. */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes core-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: .75; } }
+@keyframes eco-drop {
+  0% { transform: translateY(0); opacity: 0; }
+  12% { opacity: 1; }
+  60% { transform: translateY(22px); opacity: 1; }
+  85% { transform: translateY(28px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.spin-slow { animation: spin 40s linear infinite; }
+.spin-rev { animation: spin 28s linear infinite reverse; }
+.spin-fast { animation: spin 14s linear infinite; }
+.core-pulse { animation: core-pulse 3.2s ease-in-out infinite; }
+.eco-drop { animation: eco-drop 3.6s ease-in-out infinite; }
 
 .skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 100; background: #F3F0EA; color: #0B0B0D; padding: .6rem 1rem; font-weight: 600; }
 .skip-link:focus { top: 1rem; }
@@ -43,4 +73,6 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
+  /* Diagrams: stable, fully visible static version. */
+  .spin-slow, .spin-rev, .spin-fast, .core-pulse, .eco-drop { animation: none; }
 }

@@ -3,8 +3,8 @@ import { Reveal } from "./Reveal";
 
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-title" className="rule bg-surface">
-      <div className="wrap py-20 md:py-28">
+    <section id="about" aria-labelledby="about-title" className="screen bg-ink">
+      <div className="wrap py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <p className="label">about us</p>
@@ -20,18 +20,32 @@ export function About() {
         <div id="team-members" role="group" aria-labelledby="team-title" className="mt-24 scroll-mt-20 md:mt-32">
           <p className="label">the people behind the work</p>
           <h3 id="team-title" className="mt-5 text-big font-extrabold">built by people who build.</h3>
-          <ul className="mt-12 grid gap-px bg-line md:grid-cols-12">
-            {team.map((m, i) => (
-              <li key={m.name} className={`bg-ink ${i === 0 ? "md:col-span-7" : "md:col-span-5"}`}>
-                <Reveal className="flex h-full flex-col justify-between gap-16 p-6 sm:p-8 md:min-h-[26rem] md:p-10">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="label text-violet-soft">{m.index}</span>
-                    <span className="label">{m.role}</span>
-                  </div>
-                  <div>
-                    <p className="text-big font-extrabold tracking-tight [overflow-wrap:anywhere]" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}>{m.name}</p>
-                    <p className="mt-2 text-mute">{m.role}</p>
-                    <p className="mt-8 max-w-[38ch] border-l-2 border-violet pl-4 leading-relaxed text-paper/90">“{m.line}”</p>
+          <ul className="mt-12 grid gap-5 lg:grid-cols-3">
+            {team.map((m) => (
+              <li key={m.name} className="flex">
+                <Reveal className="flex w-full">
+                  <div
+                    className={`group flex w-full flex-col border p-6 transition-colors sm:p-8 lg:min-h-[22rem] ${
+                      m.invite
+                        ? "border-dashed border-violet/60 bg-violet/[0.06] hover:border-violet-soft"
+                        : "border-line bg-surface hover:border-paper/30"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <span className={`label ${m.invite ? "text-violet-soft" : ""}`}>{m.role}</span>
+                      {m.invite && <span className="label text-violet-soft">open invitation</span>}
+                    </div>
+                    <div className="mt-16 lg:mt-auto lg:pt-16">
+                      <p
+                        className={`font-extrabold tracking-tight [overflow-wrap:anywhere] ${m.invite ? "text-violet-soft" : ""}`}
+                        style={{ fontSize: "clamp(1.75rem, 2.6vw, 2.5rem)", lineHeight: 1.05 }}
+                      >
+                        {m.name}
+                      </p>
+                      <p className={`mt-6 border-l-2 pl-4 leading-relaxed text-paper/90 ${m.invite ? "border-violet-soft" : "border-violet"}`}>
+                        “{m.line}”
+                      </p>
+                    </div>
                   </div>
                 </Reveal>
               </li>

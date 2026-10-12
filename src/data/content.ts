@@ -7,7 +7,6 @@ export const navItems = [
 export const site = {
   name: "isoftTechX",
   founded: 2021,
-  contactEndpoint: (import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined) || "",
 };
 
 export interface Project {
@@ -60,17 +59,48 @@ export const projects: Project[] = [
   },
 ];
 
-export const team = [
+export interface TeamMember {
+  name: string;
+  role: string;
+  line: string;
+  /** True for the aspirational placeholder card. Not a real person. */
+  invite?: boolean;
+}
+
+/** Proposed editorial copy, not verified personal quotations. Edit freely. */
+export const team: TeamMember[] = [
   {
-    index: "01",
     name: "Prashant Gautam",
     role: "Founder & CEO",
     line: "the best way to understand an idea is to build it, test it, and make it better.",
   },
   {
-    index: "02",
     name: "Ankush Yadav",
     role: "CTO",
     line: "good technology isn't just about what it can do — it's about how thoughtfully it's built.",
   },
+  {
+    name: "YOU",
+    role: "Dream Role",
+    line: "every meaningful thing starts with someone willing to imagine what comes next.",
+    invite: true,
+  },
+];
+
+export type SocialId = "instagram" | "linkedin" | "github" | "x";
+
+export interface Social {
+  id: SocialId;
+  label: string;
+  handle: string;
+  /** Set to null to show the platform as "not set up yet" (renders as a non-link). */
+  href: string | null;
+}
+
+/** Company profiles. Change URLs here; the Contact section reads from this list. */
+export const socials: Social[] = [
+  { id: "instagram", label: "Instagram", handle: "@isofttechx", href: "https://www.instagram.com/isofttechx/" },
+  { id: "linkedin", label: "LinkedIn", handle: "isofttechx", href: "https://www.linkedin.com/in/isofttechx/" },
+  { id: "github", label: "GitHub", handle: "isofttechx", href: "https://github.com/isofttechx" },
+  { id: "x", label: "X", handle: "@isofttechx", href: "https://x.com/isofttechx" },
 ];
