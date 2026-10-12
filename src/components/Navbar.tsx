@@ -35,9 +35,9 @@ export function Wordmark({ className = "", onClick }: { className?: string; onCl
       <img
         src={logo}
         alt="isoftTechX home"
-        className="h-8 w-auto object-contain md:h-9"
-        width={158}
-        height={36}
+        className="block h-[1.5rem] w-auto object-contain"
+        width={105}
+        height={24}
       />
     </a>
   );
@@ -105,7 +105,7 @@ export function Navbar() {
         <nav aria-label="Primary" className="hidden items-center gap-9 md:flex">
           {navItems.map((n) => (
             <a key={n.id} href={`#${n.id}`} aria-current={active === n.id ? "location" : undefined}
-              className={`py-2 text-[0.95rem] font-medium underline-offset-8 hover:text-violet-soft ${active === n.id ? "text-violet-soft underline decoration-2" : "text-paper"}`}>
+              className={`inline-flex items-center py-2 text-[0.95rem] font-medium underline-offset-8 hover:text-violet-soft ${active === n.id ? "text-violet-soft underline decoration-2" : "text-paper"}`}>
               {n.label}
             </a>
           ))}
@@ -141,7 +141,7 @@ export function Navbar() {
                   setOpen(false);
                 }}
                 aria-current={active === n.id ? "location" : undefined}
-                className={`border-b border-line py-5 text-4xl font-semibold tracking-tight ${active === n.id ? "text-violet-soft" : ""}`}
+                className={`flex items-center border-b border-line py-5 text-4xl font-semibold tracking-tight ${active === n.id ? "text-violet-soft" : ""}`}
               >
                 {n.label}
               </a>

@@ -1,10 +1,10 @@
 import { team } from "@/data/content";
 import { Reveal } from "./Reveal";
 
-const nameFontSizes: Record<string, string> = {
-  Gautam: "2rem",
-  Yadav: "2.1rem",
-  YOU: "2.5rem",
+const nameFontClasses: Record<string, string> = {
+  Gautam: "text-[2rem] lg:text-[2.7rem]",
+  Yadav: "text-[2.1rem] lg:text-[3rem]",
+  YOU: "text-[2.5rem] lg:text-[3.5rem]",
 };
 
 export function About() {
@@ -49,8 +49,7 @@ export function About() {
                         {m.name.split(" ").map((part, idx) => (
                           <span
                             key={idx}
-                            className="block"
-                            style={nameFontSizes[part] ? { fontSize: nameFontSizes[part] } : undefined}
+                            className={`block ${nameFontClasses[part] ?? ""}`}
                           >
                             {part}
                           </span>

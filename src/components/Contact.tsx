@@ -22,15 +22,15 @@ const icons: Record<SocialId, ReactNode> = {
 /**
  * Base card shell.
  * - rounded-lg  → soft corners; overflow-hidden clips the bg precisely to the radius.
- * - Below sm (< 640 px): icon-only square, centred content.
- * - From sm up: icon + label + handle row with arrow.
+ * - Below lg (< 1024 px, mobile & tablet): icon-only, centred content.
+ * - From lg up (desktop): icon + label + handle row with arrow.
  */
 const card =
   "group relative flex overflow-hidden rounded-lg border transition-colors" +
-  /* narrow: square, centred */
-  " min-h-16 w-full items-center justify-center p-4" +
-  /* wide: left-aligned row */
-  " sm:min-h-28 sm:justify-start sm:gap-4 sm:p-5 lg:p-6";
+  /* narrow & tablet: centred icon-only */
+  " min-h-16 w-full items-center justify-center p-4 sm:min-h-20" +
+  /* desktop: left-aligned row */
+  " lg:min-h-28 lg:justify-start lg:gap-4 lg:p-5";
 
 export function Contact() {
   return (
@@ -50,15 +50,15 @@ export function Contact() {
             );
 
             const textBlock = (
-              /* Hidden below sm; always present in the DOM for AT via aria-label on the <a> */
-              <span className="hidden min-w-0 flex-1 sm:block">
+              /* Hidden below lg (mobile & tablet); visible on desktop (lg+) */
+              <span className="hidden min-w-0 flex-1 lg:block">
                 <span className="block text-xl font-semibold">{s.label}</span>
                 <span className="block truncate text-mute">{s.href ? s.handle : "not set up yet"}</span>
               </span>
             );
 
             const arrow = s.href && (
-              <ArrowUpRight aria-hidden className="hidden h-5 w-5 shrink-0 text-mute transition-colors group-hover:text-violet-soft sm:block" />
+              <ArrowUpRight aria-hidden className="hidden h-5 w-5 shrink-0 text-mute transition-colors group-hover:text-violet-soft lg:block" />
             );
 
             return (
