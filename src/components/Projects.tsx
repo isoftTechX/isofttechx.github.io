@@ -115,17 +115,31 @@ function ProjectEntry({ p, flip }: { p: Project; flip: boolean }) {
             <h3 id={`${p.id}-name`} className="mt-5 text-huge font-extrabold">{p.name}</h3>
             {p.tagline && <p className={`mt-3 text-xl font-semibold ${accent}`}>{p.tagline}</p>}
             <p className="copy mt-6">{p.description}</p>
-            <button type="button" aria-expanded={open} aria-controls={panel} onClick={() => setOpen((o) => !o)}
-              className="mt-8 inline-flex min-h-12 items-center gap-2 border-b border-paper pb-1 font-semibold hover:border-violet-soft hover:text-violet-soft">
-              {open ? "hide details" : "see details"}
-              <ChevronDown aria-hidden className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+            <button
+              type="button"
+              aria-expanded={open}
+              aria-controls={panel}
+              onClick={() => setOpen((o) => !o)}
+              className="mt-8 inline-flex min-h-12 items-center gap-2 border-b border-paper pb-1 font-semibold transition-colors duration-200 hover:border-violet-soft hover:text-violet-soft"
+            >
+              <span>{open ? "hide details" : "see details"}</span>
+              <ChevronDown aria-hidden className={`h-4 w-4 transition-transform duration-300 ease-in-out ${open ? "rotate-180" : ""}`} />
             </button>
-            <div id={panel} hidden={!open} className="mt-6 border border-line bg-surface p-6">
-              <p className="label">{p.areasLabel}</p>
-              <ul className="mt-4 space-y-2">
-                {p.areas.map((a) => <li key={a} className="border-t border-line pt-2 text-paper">{a}</li>)}
-              </ul>
-              <p className="mt-5 text-sm leading-relaxed text-mute">{p.note}</p>
+            <div
+              id={panel}
+              className={`grid transition-all duration-300 ease-in-out motion-reduce:transition-none ${
+                open ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="border border-line bg-surface p-6">
+                  <p className="label">{p.areasLabel}</p>
+                  <ul className="mt-4 space-y-2">
+                    {p.areas.map((a) => <li key={a} className="border-t border-line pt-2 text-paper">{a}</li>)}
+                  </ul>
+                  <p className="mt-5 text-sm leading-relaxed text-mute">{p.note}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ export function Hero() {
         </h1>
         <div className="mt-14 grid gap-10 md:grid-cols-12">
           <p className="copy rise text-xl md:col-span-6 md:col-start-7" style={{ animationDelay: ".2s" }}>
-            We build original products and intelligent systems through experimentation, engineering, and a belief that good ideas deserve to become real.
+            We build products and intelligent systems through experimentation, engineering, and a belief that good ideas deserve to become real.
           </p>
           <div className="rise flex flex-wrap gap-3 md:col-span-6 md:col-start-7" style={{ animationDelay: ".3s" }}>
             <a href="#projects" className={primary}>explore projects <ArrowDown aria-hidden className="h-4 w-4" /></a>
