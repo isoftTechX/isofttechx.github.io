@@ -8,10 +8,10 @@ export function Hero() {
     <section id="top" aria-labelledby="hero-title" className="screen relative overflow-hidden">
       <div className="grid-bg absolute inset-0" aria-hidden />
       <div className="wrap relative py-12 md:py-16">
-        <p className="label rise">an independent technology venture</p>
-        <h1 id="hero-title" className="rise mt-8 text-mega font-extrabold" style={{ animationDelay: ".08s" }}>
-          ideas into<br />
-          <span className="text-violet-soft">intelligence.</span>
+        <p className="label rise">the future has a source code</p>
+        <h1 id="hero-title" className="rise mt-8 text-huge font-extrabold" style={{ animationDelay: ".08s" }}>
+          tomorrow isn't imagined<br />
+          <span className="text-violet-soft text-mega">it's engineered.</span>
         </h1>
         <div className="mt-14 grid gap-10 md:grid-cols-12">
           <p className="copy rise text-xl md:col-span-6 md:col-start-7" style={{ animationDelay: ".2s" }}>

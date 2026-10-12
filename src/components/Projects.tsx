@@ -153,8 +153,8 @@ export function Projects() {
     <section id="projects" aria-labelledby="projects-title" className="screen">
       <div className="wrap py-12 md:py-16">
         <p className="label">selected work</p>
-        <h2 id="projects-title" className="mt-5 max-w-4xl text-huge font-extrabold">built from ideas. shaped by iteration.</h2>
-        <p className="copy mt-6">A look at the products and experiments shaping our approach to technology.</p>
+        <h2 id="projects-title" className="mt-5 max-w-4xl text-huge font-extrabold ">ideas into <span className="text-violet-soft">intelligence.</span></h2>
+        <p className="copy mt-6">products and experiments shaping our approach to technology.</p>
         <div className="mt-14">
           {projects.map((p, i) => <ProjectEntry key={p.id} p={p} flip={i % 2 === 1} />)}
         </div>
