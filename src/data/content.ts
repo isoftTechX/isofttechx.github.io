@@ -21,19 +21,19 @@ export const projects: Project[] = [
     id: "mayave",
     index: "01",
     name: "MayaVE",
-    category: "personal ai · voice interaction · virtual presence",
+    category: "personal AI · voice interaction · virtual presence",
     description:
       "MayaVE is an evolving desktop AI assistant project exploring natural voice interaction, local-first computing, persistent memory, and an expressive 3D virtual presence.",
     areasLabel: "implementation areas",
     areas: [
-      "desktop ai voice assistant",
-      "python-based asynchronous backend",
-      "local llm integration through Ollama",
+      "desktop AI voice assistant",
+      "Python-based asynchronous backend",
+      "local LLM integration through Ollama",
       "voice processing and speech synthesis",
       "persistent semantic memory",
-      "live 3d avatar built on web-based 3d technologies",
+      "live 3D avatar built on web-based 3D technologies",
     ],
-    note: "MayaVE is the latest version of the EVE project (Evolving Virtual Entity). It is an engineering work in progress, and it is not fully offline: speech recognition currently relies on an internet connection.",
+    note: "MayaVE is the latest evolution of the EVE project (Evolving Virtual Entity). It combines local LLM inference with internet-assisted speech recognition in an ongoing desktop AI assistant project.",
   },
   {
     id: "ecoreward",
@@ -48,9 +48,9 @@ export const projects: Project[] = [
       "smart waste-disposal concept",
       "bottle or recyclable-item identification",
       "reward points and balance concepts",
-      "python-based backend and MongoDB integration",
+      "Python-based backend and MongoDB integration",
     ],
-    note: "A sustainability-focused prototype initiative. It is not deployed, and there are no impact figures or partners to report.",
+    note: "A sustainability-focused prototype exploring smart waste identification and reward-driven recycling.",
   },
 ];
 
@@ -58,11 +58,10 @@ export interface TeamMember {
   name: string;
   role: string;
   line: string;
-  /** True for the aspirational placeholder card. Not a real person. */
+  /** True for the open invitation card. */
   invite?: boolean;
 }
 
-/** Proposed editorial copy, not verified personal quotations. Edit freely. */
 export const team: TeamMember[] = [
   {
     name: "Prashant Gautam",
@@ -87,8 +86,6 @@ export type SocialId = "instagram" | "linkedin" | "github" | "x";
 export interface Social {
   id: SocialId;
   label: string;
-  handle: string;
-  /** Set to null to show the platform as "not set up yet" (renders as a non-link). */
   href: string | null;
 }
 

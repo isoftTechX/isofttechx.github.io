@@ -5,7 +5,7 @@ isoftTechX builds AI, intelligent systems, and software.
 **Stack:** React 18 · Vite 5 · TypeScript · Tailwind CSS 3 · Lucide React
 
 ## Architecture & Design
-- **Single-page layout:** Section anchor navigation (`#projects`, `#about`, `#contact`) with sticky header and mobile navigation drawer.
+- **Single-page layout:** Sticky header with smooth-scrolling section navigation (`projects`, `about`, `contact`) that keeps the URL clean without hash fragments.
 - **Typography:** Pure system-font stack (`ui-sans-serif, system-ui, sans-serif`) with zero external font requests.
 - **Visuals:** Dark editorial theme (`#0B0B0D`), restrained violet accents, and accessible SVG diagrams with reduced-motion support.
 - **Contact:** Responsive social cards linking directly to official profiles (Instagram, LinkedIn, GitHub, X).
